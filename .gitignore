@@ -2,3 +2,6 @@
 /apps/core/migrations/*
 /gymfitapp/__pycache__/*
 /gymfitapp/migrations/*
+**/__pycache__/
+*.py[cod]
+gymfitapp/.env
