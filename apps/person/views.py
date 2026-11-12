@@ -1,4 +1,4 @@
-from django.shortcuts import redirect ,render
+from django.shortcuts import get_object_or_404, redirect ,render
 
 from .forms import PersonForm
 from .models import Person
@@ -24,5 +24,22 @@ def add_person(request):
 
     context = {
         'form': form,
+    }
+    return render(request, template_name, context)
+def edit_person(request, id_person):
+    template_name = 'person/add_person.html'
+    person = get_object_or_404(Person, id=id_person)
+
+    if request.method == 'POST':
+        form = PersonForm(request.POST, instance=person)
+        if form.is_valid():
+            form.save()
+            return redirect('person:list_persons')
+    else:
+        form = PersonForm(instance=person)
+
+    context = {
+        'form': form,
+        'person': person,
     }
     return render(request, template_name, context)
