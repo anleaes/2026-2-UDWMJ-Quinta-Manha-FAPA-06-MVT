@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Excluir Pessoa - {{ block.super }}{% endblock title %}
+
+{% block body %}
+<h1>Excluir Pessoa</h1>
+<p>Você confirma a exclusão de {{ person }}?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirmar exclusão</button>
+    <a href="{% url 'person:list_persons' %}">Cancelar</a>
+</form>
+{% endblock body %}
