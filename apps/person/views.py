@@ -43,3 +43,15 @@ def edit_person(request, id_person):
         'person': person,
     }
     return render(request, template_name, context)
+def delete_person(request, id_person):
+    template_name = 'person/delete_person.html'
+    person = get_object_or_404(Person, id=id_person)
+
+    if request.method == 'POST':
+        person.delete()
+        return redirect('person:list_persons')
+
+    context = {
+        'person': person,
+    }
+    return render(request, template_name, context)
