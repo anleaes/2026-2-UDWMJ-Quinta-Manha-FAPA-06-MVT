@@ -7,4 +7,5 @@ app_name = 'person'
 urlpatterns = [
     path('listar/', views.list_persons, name='list_persons'),
     path('adicionar/', views.add_person, name='add_person'),
+    path('editar/<int:id_person>/', views.edit_person, name='edit_person'),
 ]
