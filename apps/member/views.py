@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import  get_object_or_404, redirect, render
 from .models import Member
 from .forms import MemberForm
 
@@ -24,5 +24,22 @@ def add_member(request):
 
     context = {
         'form': form,
+    }
+    return render(request, template_name, context)
+def edit_member(request, id_member):
+    template_name = 'member/add_member.html'
+    member = get_object_or_404(Member, id=id_member)
+
+    if request.method == 'POST':
+        form = MemberForm(request.POST, request.FILES, instance=member)
+        if form.is_valid():
+            form.save()
+            return redirect('member:list_members')
+    else:
+        form = MemberForm(instance=member)
+
+    context = {
+        'form': form,
+        'member': member,
     }
     return render(request, template_name, context)
