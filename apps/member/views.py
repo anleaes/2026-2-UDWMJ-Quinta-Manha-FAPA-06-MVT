@@ -1,0 +1,57 @@
+from django.shortcuts import  get_object_or_404, redirect, render
+from .models import Member
+from .forms import MemberForm
+
+
+# Create your views here.
+def list_members(request):
+    template_name = 'member/list_members.html'
+    members = Member.objects.filter()
+    context = {
+        'members': members,
+    }
+    return render(request, template_name, context)
+def add_member(request):
+    template_name = 'member/add_member.html'
+
+    if request.method == 'POST':
+        form = MemberForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('member:list_members')
+    else:
+        form = MemberForm()
+
+    context = {
+        'form': form,
+    }
+    return render(request, template_name, context)
+def edit_member(request, id_member):
+    template_name = 'member/add_member.html'
+    member = get_object_or_404(Member, id=id_member)
+
+    if request.method == 'POST':
+        form = MemberForm(request.POST, request.FILES, instance=member)
+        if form.is_valid():
+            form.save()
+            return redirect('member:list_members')
+    else:
+        form = MemberForm(instance=member)
+
+    context = {
+        'form': form,
+        'member': member,
+    }
+    return render(request, template_name, context)
+def delete_member(request, id_member):
+    template_name = 'member/delete_member.html'
+    member = get_object_or_404(Member, id=id_member)
+
+    if request.method == 'POST':
+        member.delete(keep_parents=True)
+        return redirect('member:list_members')
+
+    context = {
+        'member': member,
+    }
+    return render(request, template_name, context)
