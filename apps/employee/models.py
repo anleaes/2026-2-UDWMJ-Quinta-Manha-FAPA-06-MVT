@@ -11,3 +11,12 @@ class Employee(Person):
     ])
     salary = models.DecimalField('Salário', max_digits=10, decimal_places=2)
     cref = models.CharField('CREF', max_length=30, blank=True)
+    photo = models.ImageField('Foto', upload_to='employees/photos/', blank=True)
+
+    class Meta:
+        verbose_name = 'Funcionário'
+        verbose_name_plural = 'Funcionários'
+        ordering = ['id']
+
+    def __str__(self):
+        return super().__str__()
