@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Membros - {{ block.super }}{% endblock title %}
+
+{% block body %}
+<h1>Lista de Membros</h1>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Data de cadastro</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for member in members %}
+        <tr>
+            <td>{{ member.id }}</td>
+            <td>{{ member }}</td>
+            <td>{{ member.registered_at|date:'d/m/Y' }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3">Nenhum membro cadastrado.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock body %}
