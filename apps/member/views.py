@@ -43,3 +43,15 @@ def edit_member(request, id_member):
         'member': member,
     }
     return render(request, template_name, context)
+def delete_member(request, id_member):
+    template_name = 'member/delete_member.html'
+    member = get_object_or_404(Member, id=id_member)
+
+    if request.method == 'POST':
+        member.delete(keep_parents=True)
+        return redirect('member:list_members')
+
+    context = {
+        'member': member,
+    }
+    return render(request, template_name, context)
