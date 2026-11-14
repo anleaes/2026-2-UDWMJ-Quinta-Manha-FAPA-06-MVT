@@ -9,3 +9,5 @@ class Employee(Person):
         ('recepcionista', 'Recepcionista'),
         ('gerente', 'Gerente'),
     ])
+    salary = models.DecimalField('Salário', max_digits=10, decimal_places=2)
+    cref = models.CharField('CREF', max_length=30, blank=True)
