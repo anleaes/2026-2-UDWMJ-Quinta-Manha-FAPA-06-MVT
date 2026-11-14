@@ -6,5 +6,6 @@ app_name = 'member'
 
 urlpatterns = [
     path('listar/', views.list_members, name='list_members'),
+    path('adicionar/', views.add_member, name='add_member'),
  
 ]
