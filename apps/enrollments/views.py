@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import EnrollmentForm
 from .models import Enrollment
 
@@ -40,3 +40,8 @@ def edit_enrollment(request, id_enrollment):
         form = EnrollmentForm(instance=enrollment)
     context['form'] = form
     return render(request, template_name, context)
+
+def delete_enrollment(request, id_enrollment):
+    enrollment = Enrollment.objects.get(id=id_enrollment)
+    enrollment.delete()
+    return redirect('enrollment:list_enrollments')
