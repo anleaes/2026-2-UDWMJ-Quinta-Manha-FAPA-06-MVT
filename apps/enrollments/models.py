@@ -1,7 +1,7 @@
 from django.db import models
-from members.models import Member
-from plans.models import Plan
-from employees.models import Employee
+from member.models import Member
+from plan.models import Plan
+from employee.models import Employee
 # Create your models here.
 
 class Enrollment(models.Model):
