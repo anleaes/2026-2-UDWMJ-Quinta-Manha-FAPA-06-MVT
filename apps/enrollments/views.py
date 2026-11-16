@@ -26,3 +26,17 @@ def list_enrollments(request):
         'enrollments': enrollments
     }
     return render(request, template_name, context)
+
+def edit_enrollment(request, id_enrollment):
+    template_name = 'enrollment/add_enrollment.html'
+    context = {}
+    enrollment = get_object_or_404(Enrollment, id=id_enrollment)
+    if request.method == 'POST':
+        form = EnrollmentForm(request.POST, instance=enrollment)
+        if form.is_valid():
+            form.save()
+            return redirect('enrollment:list_enrollments')
+    else:
+        form = EnrollmentForm(instance=enrollment)
+    context['form'] = form
+    return render(request, template_name, context)
