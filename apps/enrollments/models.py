@@ -20,4 +20,8 @@ class Enrollment(models.Model):
     member = models.ForeignKey(Member, on_delete=models.CASCADE)
     plan = models.ForeignKey(Plan, on_delete=models.CASCADE)
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
-    
+
+    class Meta:
+        verbose_name = 'Matrícula'
+        verbose_name_plural = 'Matrículas'
+        ordering = ['id']
