@@ -18,3 +18,11 @@ def add_enrollment(request):
         form = EnrollmentForm()
     context['form'] = form
     return render(request, template_name, context)
+
+def list_enrollments(request):
+    template_name = 'enrollment/list_enrollments.html'
+    enrollments = Enrollment.objects.filter()
+    context = {
+        'enrollments': enrollments
+    }
+    return render(request, template_name, context)
