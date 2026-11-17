@@ -4,3 +4,5 @@
 /gymfitapp/migrations/*
 /apps/enrollment/__pycache__/*
 /apps/enrollment/migrations/*
+/db.sqlite3
+.env
