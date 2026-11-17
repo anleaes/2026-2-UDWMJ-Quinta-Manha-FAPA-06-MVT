@@ -1,0 +1,14 @@
+/apps/core/__pycache__/*
+/apps/core/migrations/*
+/gymfitapp/__pycache__/*
+/gymfitapp/migrations/*
+/apps/enrollment/__pycache__/*
+/apps/enrollment/migrations/*
+/apps/employee/__pycache__/*
+/apps/employee/migrations/*
+/apps/person/__pycache__/*
+/apps/person/migrations/*
+/apps/member/__pycache__/*
+/apps/member/migrations/*
+/db.sqlite3
+.env 
