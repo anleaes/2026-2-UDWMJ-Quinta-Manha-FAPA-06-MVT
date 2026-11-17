@@ -6,10 +6,12 @@
 
 {% block body %}
  <br />
+ <b>Lista de Matrículas</b>
+ <br />
+ <br />
  <a href="{% url 'enrollment:add_enrollment' %}">Cadastro de nova matrícula</a>
  <br />
- <br />
- <b>Lista de Matrículas</b>
+ <input type="text" id="busca" placeholder="Buscar matrícula..." />
  <br />
  <br />
  <table border="1">
@@ -36,13 +38,12 @@
  <td>{{ enrollment.employee }}</td>
  <td>{{ enrollment.start_date|date:"d/m/Y" }}</td>
  <td>{{ enrollment.end_date|date:"d/m/Y" }}</td>
- <td>{{ enrollment.get_status_display }}</td>
+ <td><span class="badge badge-{{ enrollment.status }}">{{ enrollment.get_status_display }}</span></td>
  <td>{{ enrollment.total }}</td>
  <td>
- <a href="{% url 'enrollment:edit_enrollment' enrollment.id %}">Editar</a>
- </td>
+ <a href="{% url 'enrollment:edit_enrollment' enrollment.id %}" class="btn-editar">Editar</a> </td>
  <td>
- <a href="{% url 'enrollment:delete_enrollment' enrollment.id %}">Excluir</a>
+ <a href="{% url 'enrollment:delete_enrollment' enrollment.id %}" class="btn-excluir">Excluir</a>
  </td>
  </tr>
  {% endfor %}
