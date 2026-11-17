@@ -6,12 +6,11 @@
 
 {% block body %}
  <br />
- 
+ <a href="{% url 'enrollment:add_enrollment' %}">Cadastro de nova matrícula</a>
  <br />
  <br />
  <b>Lista de Matrículas</b>
  <br />
-  <a href="{% url 'enrollment:add_enrollment' %}">Cadastro de nova matrícula</a>
  <br />
  <table border="1">
  <thead>
@@ -40,6 +39,10 @@
  <td>{{ enrollment.get_status_display }}</td>
  <td>{{ enrollment.total }}</td>
  <td>
+ <a href="{% url 'enrollment:edit_enrollment' enrollment.id %}">Editar</a>
+ </td>
+ <td>
+ <a href="{% url 'enrollment:delete_enrollment' enrollment.id %}">Excluir</a>
  </td>
  </tr>
  {% endfor %}
