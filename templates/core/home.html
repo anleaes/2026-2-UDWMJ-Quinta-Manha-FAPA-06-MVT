@@ -12,8 +12,8 @@
  </div>
 
  <div class="opcoes">
- <a href="" class="menu-link"><button>Alunos</button></a>
- <a href="" class="menu-link"><button>Funcionários</button></a>
+ <a href="{% url 'member:list_members' %}" class="menu-link"><button>Alunos</button></a>
+ <a href="{% url 'employee:list_employees' %}" class="menu-link"><button>Funcionários</button></a>
  <a href="" class="menu-link"><button>Planos</button></a>
  <a href="" class="menu-link"><button>Modalidades</button></a>
  <a href="" class="menu-link"><button>Salas</button></a>
@@ -24,4 +24,4 @@
  <a href="" class="menu-link"><button>Aulas</button></a>
  <a href="" class="menu-link"><button>Reservas</button></a>
  </div>
-{% endblock %}
+{% endblock %} 
