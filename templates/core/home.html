@@ -1,11 +1,27 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    {{ block.super }}
-{% endblock title %}
+ Início - {{ block.super }}
+{% endblock %}
 
 {% block body %}
+ <br />
+ <div class="centralizado">
+ <h1>Bem-vindo à GymFit</h1>
+ <p>Escolha uma opção abaixo para começar.</p> 
+ </div>
 
-<!-- Codigo html especifico desse arquivo -->
-
-{% endblock body %}
+ <div class="opcoes">
+ <a href="" class="menu-link"><button>Alunos</button></a>
+ <a href="" class="menu-link"><button>Funcionários</button></a>
+ <a href="" class="menu-link"><button>Planos</button></a>
+ <a href="" class="menu-link"><button>Modalidades</button></a>
+ <a href="" class="menu-link"><button>Salas</button></a>
+ <a href="{% url 'enrollment:list_enrollments' %}" class="menu-link"><button>Matrículas</button></a>
+ <a href="" class="menu-link"><button>Contratos</button></a>
+ <a href="" class="menu-link"><button>Pagamentos</button></a>
+ <a href="" class="menu-link"><button>Avaliações</button></a>
+ <a href="" class="menu-link"><button>Aulas</button></a>
+ <a href="" class="menu-link"><button>Reservas</button></a>
+ </div>
+{% endblock %}
