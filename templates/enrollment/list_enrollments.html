@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ Lista de Matrículas - {{ block.super }}
+{% endblock %}
+
+{% block body %}
+ <br />
+ <a href="{% url 'enrollment:add_enrollment' %}">Cadastro de nova matrícula</a>
+ <br />
+ <br />
+ <b>Lista de Matrículas</b>
+ <br />
+ <br />
+ <table border="1">
+ <thead>
+ <tr>
+ <th>ID</th>
+ <th>Aluno</th>
+ <th>Plano</th>
+ <th>Funcionário</th>
+ <th>Início</th>
+ <th>Término</th>
+ <th>Status</th>
+ <th>Total</th>
+ <th></th>
+ <th></th>
+ </tr>
+ </thead>
+ <tbody>
+ {% for enrollment in enrollments %}
+ <tr>
+ <th>{{ enrollment.id }}</th>
+ <td>{{ enrollment.member }}</td>
+ <td>{{ enrollment.plan }}</td>
+ <td>{{ enrollment.employee }}</td>
+ <td>{{ enrollment.start_date|date:"d/m/Y" }}</td>
+ <td>{{ enrollment.end_date|date:"d/m/Y" }}</td>
+ <td>{{ enrollment.get_status_display }}</td>
+ <td>{{ enrollment.total }}</td>
+ <td>
+ <a href="{% url 'enrollment:edit_enrollment' enrollment.id %}">Editar</a>
+ </td>
+ <td>
+ <a href="{% url 'enrollment:delete_enrollment' enrollment.id %}">Excluir</a>
+ </td>
+ </tr>
+ {% endfor %}
+ </tbody>
+ </table>
+{% endblock %}
