@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Membros - {{ block.super }}{% endblock title %}
+
+{% block body %}
+<h1>Lista de Membros</h1>
+<a href="{% url 'member:add_member' %}">Cadastrar membro</a>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Data de cadastro</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for member in members %}
+        <tr>
+            <td>{{ member.id }}</td>
+            <td>{{ member }}</td>
+            <td>{{ member.registered_at|date:'d/m/Y' }}</td>
+            <td>
+    <a href="{% url 'member:edit_member' member.id %}">Editar</a>
+    <a href="{% url 'member:delete_member' member.id %}">Excluir</a>
+</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">Nenhum membro cadastrado.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock body %}
