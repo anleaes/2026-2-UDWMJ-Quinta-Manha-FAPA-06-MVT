@@ -1,3 +1,5 @@
+/apps/assessment/__pycache__/*
+/apps/assessment/migrations/*
 /apps/core/__pycache__/*
 /apps/core/migrations/*
 /gymfitapp/__pycache__/*
