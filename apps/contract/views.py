@@ -26,3 +26,17 @@ def list_contracts(request):
         'contracts': contracts
     }
     return render(request, template_name, context)
+
+def edit_contract(request, id_contract):
+    template_name = 'contract/add_contract.html'
+    context = {}
+    contract = get_object_or_404(Contract, id=id_contract)
+    if request.method == 'POST':
+        form = ContractForm(request.POST, request.FILES, instance=contract)
+        if form.is_valid():
+            form.save()
+            return redirect('contract:list_contracts')
+    else:
+        form = ContractForm(instance=contract)
+    context['form'] = form
+    return render(request, template_name, context)
