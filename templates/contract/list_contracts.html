@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ Lista de Contratos - {{ block.super }}
+{% endblock %}
+
+{% block body %}
+ <br />
+ <br />
+ <br />
+ <b>Lista de Contratos</b>
+ <br />
+ <br />
+ <table border="1">
+ <thead>
+ <tr>
+ <th>ID</th>
+ <th>Número</th>
+ <th>Matrícula</th>
+ <th>Assinado</th>
+ <th>Data de assinatura</th>
+ <th>PDF</th>
+ <th></th>
+ <th></th>
+ </tr>
+ </thead>
+ <tbody>
+ {% for contract in contracts %}
+ <tr>
+ <th>{{ contract.id }}</th>
+ <td>{{ contract.number }}</td>
+ <td>{{ contract.enrollment }}</td>
+ <td>
+ {% if contract.is_signed == True %}
+ Sim
+ {% endif %}
+ {% if contract.is_signed == False %}
+ Não
+ {% endif %}
+ </td>
+ <td>{{ contract.signed_at|date:"d/m/Y" }}</td>
+ <td>
+ {% if contract.pdf %}
+ <a href="{{ contract.pdf.url }}">Abrir PDF</a>
+ {% endif %}
+ </td>
+ <td>
+ 
+ </td>
+ <td>
+
+ </td>
+ </tr>
+ {% endfor %}
+ </tbody>
+ </table>
+{% endblock %}
