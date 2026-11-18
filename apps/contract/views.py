@@ -40,3 +40,8 @@ def edit_contract(request, id_contract):
         form = ContractForm(instance=contract)
     context['form'] = form
     return render(request, template_name, context)
+
+def delete_contract(request, id_contract):
+    contract = Contract.objects.get(id=id_contract)
+    contract.delete()
+    return redirect('contract:list_contracts')
