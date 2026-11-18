@@ -27,3 +27,19 @@ def add_class_booking(request):
         'form': form,
     }
     return render(request, template_name, context)
+
+@login_required(login_url='/contas/login/')
+def edit_class_booking(request, pk):
+    template_name = 'classbooking/add_class_booking.html'
+    booking = get_object_or_404(ClassBooking, pk=pk)
+    if request.method == 'POST':
+        form = ClassBookingForm(request.POST, instance=booking)
+        if form.is_valid():
+            form.save()
+            return redirect('classbooking:list_class_bookings')
+    else:
+        form = ClassBookingForm(instance=booking)
+    context = {
+        'form': form,
+    }
+    return render(request, template_name, context)
