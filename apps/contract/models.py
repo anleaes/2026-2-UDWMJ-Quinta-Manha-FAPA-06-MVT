@@ -10,10 +10,10 @@ class Contract(models.Model):
     pdf = models.FileField('PDF do contrato', upload_to='docs', null=True, blank=True)
     enrollment = models.OneToOneField(Enrollment, on_delete=models.CASCADE)
 
-class Meta:
-    verbose_name = 'Contrato'
-    verbose_name_plural = 'Contratos'
-    ordering = ['id']
+    class Meta:
+        verbose_name = 'Contrato'
+        verbose_name_plural = 'Contratos'
+        ordering = ['id']
 
-def __str__(self):
-    return f'{self.id} - {self.number}'    
+    def __str__(self):
+        return f'{self.id} - {self.number}'  
