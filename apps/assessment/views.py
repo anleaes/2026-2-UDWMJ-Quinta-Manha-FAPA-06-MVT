@@ -34,3 +34,8 @@ def edit_assessment(request, id_assessment):
     form = AssessmentForm(instance=assessment)
     context['form'] = form
     return render(request, template_name, context)
+
+def delete_assessment(request, id_assessment):
+    assessment = get_object_or_404(Assessment, id=id_assessment)
+    assessment.delete()
+    return redirect('assessment:assessment_list')
