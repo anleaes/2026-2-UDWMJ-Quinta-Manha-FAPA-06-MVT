@@ -7,3 +7,5 @@ class Assessment(models.Model):
     weight = models.DecimalField(max_digits=5, decimal_places=2, verbose_name="Peso (kg)")
     height = models.DecimalField(max_digits=4, decimal_places=2, verbose_name="Altura (m)")
     body_fat_percentage = models.DecimalField(max_digits=4, decimal_places=1, blank=True, null=True, verbose_name="% de Gordura")
+    assessment_date = models.DateField(auto_now_add=True, verbose_name="Data da Avaliação")
+    observations = models.TextField(blank=True, null=True, verbose_name="Observações")
