@@ -1,9 +1,23 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import ListView
 from .forms import AssessmentForm
 from .models import Assessment
 
-class AssessmentListView(ListView):
-    model = Assessment
+def list_assessments(request):
     template_name = 'assessment/assessment_list.html'
-    context_object_name = 'assessments'
+    assessments = Assessment.objects.all()
+    context = {
+        'assessments': assessments,
+    }
+    return render(request, template_name, context)
+
+def add_assessment(request):
+    template_name = 'assessment/assessment_form.html'
+    context = {}
+    if request.method == 'POST':
+        form = AssessmentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('assessment:assessment_list')
+    form = AssessmentForm()
+    context['form'] = form
+    return render(request, template_name, context)
