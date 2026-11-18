@@ -1,4 +1,4 @@
 from django.db import models
-from .models import Contract
+from enrollment.models import Enrollment
 # Create your models here.
 
