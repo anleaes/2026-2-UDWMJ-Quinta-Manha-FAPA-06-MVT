@@ -23,5 +23,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('avaliacoes/', include('apps.assessment.urls', namespace='assessment')),
     path('', include('core.urls', namespace='core')),
+    path('pessoas/', include('person.urls', namespace='person')),
+    path('membros/', include('member.urls', namespace='member')),
+    path('funcionarios/', include('employee.urls', namespace='employee')),
+    path('matriculas/', include('enrollment.urls', namespace='enrollment')),
+    path('contratos/', include('contract.urls', namespace='contract')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

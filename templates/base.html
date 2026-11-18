@@ -3,24 +3,24 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/arquivo_com_estilos.css' %}">
-    <title>{% block title %}GymFitApp{% endblock title %}</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/arquivo_com_estilos.css' %}">
+  <title>{% block title %}GymFit{% endblock title %}</title>
 </head>
 <body>
 
+<div class="menu">
+  <a href="{% url 'core:home' %}" class="logo">GymFit</a>
+</div>
+
+<main class="conteudo">
+ {% block body %}
+
+ {% endblock body %}
+</main>
     
-    <nav>
-        <a href="{% url 'assessment:list_assessments' %}">Avaliações Físicas</a>
-    </nav>
-    <hr>
-
-    {% block body %}
-
-    {% endblock body %}
-
     <script src="{% static 'js/arquivo_com_javascript.js' %}"></script>
 </body>
 </html>
