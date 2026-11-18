@@ -25,4 +25,5 @@ class ClassBooking(models.Model):
         verbose_name_plural = 'Agendamentos'
         ordering = ['id']
 
-    
+    def __str__(self):
+        return f"Agendamento de {self.member} para {self.class_session}"
