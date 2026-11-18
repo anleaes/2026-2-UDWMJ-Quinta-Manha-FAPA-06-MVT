@@ -18,3 +18,11 @@ def add_contract(request):
         form = ContractForm()
     context['form'] = form
     return render(request, template_name, context)
+
+def list_contracts(request):
+    template_name = 'contract/list_contracts.html'
+    contracts = Contract.objects.filter()
+    context = {
+        'contracts': contracts
+    }
+    return render(request, template_name, context)
