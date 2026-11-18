@@ -10,5 +10,44 @@
 <b>Cadastro de Avaliação Física</b>
 <br />
 <br />
+<form action="" method="POST">
+{% csrf_token %}
+    <label>Membro</label>
+    <br />   
+    {{ form.member }}
+    <br />
+    <br />
+    <label>Profissional Responsável</label>
+    <br />    
+    {{ form.employee }}
+    <br />
+    <br />
+    <label>Peso (kg)</label>
+    <br />    
+    {{ form.weight }}
+    <br />
+    <br />
+    <label>Altura (m)</label>
+    <br />    
+    {{ form.height }}
+    <br />
+    <br />
+    <label>% de Gordura</label>
+    <br />   
+    {{ form.body_fat_percentage }}
+    <br />
+    <br />
+    <label>Data da Avaliação</label>
+    <br />   
+    {{ form.assessment_date }}
+    <br />
+    <br />
+    <label>Observações</label>
+    <br />    
+    {{ form.observations }}
+    <br />
+    <br />
+    <button type="submit">Salvar</button>       
+</form>
 
 {% endblock body %}
