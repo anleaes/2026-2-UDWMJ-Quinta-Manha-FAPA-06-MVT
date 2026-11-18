@@ -21,26 +21,6 @@ function filtrarTabela() {
     });
 }
 
-// matricula: sugere a data de termino (inicio + 1 mes)
-function preencherTermino() {
-    var inicio = document.getElementById("id_start_date");
-    var fim = document.getElementById("id_end_date");
-    if (!inicio || !fim) {
-        return;
-    }
-    inicio.addEventListener("change", function () {
-        if (!inicio.value || fim.value) {
-            return;
-        }
-        var data = new Date(inicio.value + "T00:00:00");
-        data.setMonth(data.getMonth() + 1);
-        var ano = data.getFullYear();
-        var mes = String(data.getMonth() + 1).padStart(2, "0");
-        var dia = String(data.getDate()).padStart(2, "0");
-        fim.value = ano + "-" + mes + "-" + dia;
-    });
-}
-
 // pagamentos: pinta de verde os pagos e de vermelho os vencidos
 function marcarPagamentos() {
     var agora = new Date();
@@ -59,7 +39,6 @@ function marcarPagamentos() {
 }
 
 // destaca no menu a pagina atual
-// destaca no menu a pagina atual
 function marcarMenu() {
     var links = document.querySelectorAll("a.menu-link");
     links.forEach(function (link) {
@@ -77,7 +56,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     filtrarTabela();
-    preencherTermino();
     marcarPagamentos();
     marcarMenu();
 });

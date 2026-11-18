@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'member.apps.MemberConfig',
     'employee.apps.EmployeeConfig',
     'enrollment.apps.EnrollmentConfig',
+    'contract.apps.ContractConfig',
 ]
 
 MIDDLEWARE = [
