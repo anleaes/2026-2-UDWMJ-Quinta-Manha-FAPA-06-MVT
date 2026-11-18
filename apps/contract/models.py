@@ -14,3 +14,6 @@ class Meta:
     verbose_name = 'Contrato'
     verbose_name_plural = 'Contratos'
     ordering = ['id']
+
+def __str__(self):
+    return f'{self.id} - {self.number}'    
