@@ -43,3 +43,9 @@ def edit_class_booking(request, pk):
         'form': form,
     }
     return render(request, template_name, context)
+
+@login_required(login_url='/contas/login/')
+def delete_class_booking(request, pk):
+    booking = get_object_or_404(ClassBooking, pk=pk)
+    booking.delete()
+    return redirect('classbooking:list_class_bookings')
