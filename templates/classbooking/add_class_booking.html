@@ -5,3 +5,45 @@
 {% endblock title %}
 
 {% block body %}
+
+<br />
+<b>Cadastro de Agendamento</b>
+<br />
+<br />
+<form action="" method="POST">
+    {% csrf_token %}
+    
+    <label>Data do Agendamento</label>
+    <br />   
+    {{ form.booked_at }}
+    <br />
+    <br />
+    
+    <label>Compareceu</label>
+    <br />    
+    {{ form.attended }}
+    <br />
+    <br />
+    
+    <label>Status</label>
+    <br />    
+    {{ form.status }}
+    <br />
+    <br />
+    
+    <label>Membro</label>
+    <br />   
+    {{ form.member }}
+    <br />
+    <br />
+    
+    <label>Sessão de Aula</label>
+    <br />    
+    {{ form.class_session }}
+    <br />
+    <br />
+    
+    <button type="submit">Salvar</button>       
+</form>
+
+{% endblock body %}
