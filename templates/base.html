@@ -7,15 +7,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/arquivo_com_estilos.css' %}">
-    <title>{% block title %}Nome do meu App{% endblock title %}</title>
+    <title>{% block title %}GymFitApp{% endblock title %}</title>
 </head>
 <body>
+    
+    <!-- Menu de Navegação / Links globais -->
+    <nav>
+        <a href="{% url 'classbooking:list_class_bookings' %}">Agendamentos</a>
+    </nav>
+    <hr>
 
     {% block body %}
-    
+
     {% endblock body %}
-    
+
     <script src="{% static 'js/arquivo_com_javascript.js' %}"></script>
-</body>
-</html>
+
 
