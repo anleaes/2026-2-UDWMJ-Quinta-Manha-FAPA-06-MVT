@@ -9,3 +9,8 @@ class Contract(models.Model):
     is_signed = models.BooleanField('Assinado', default=False)
     pdf = models.FileField('PDF do contrato', upload_to='docs', null=True, blank=True)
     enrollment = models.OneToOneField(Enrollment, on_delete=models.CASCADE)
+
+class Meta:
+    verbose_name = 'Contrato'
+    verbose_name_plural = 'Contratos'
+    ordering = ['id']
