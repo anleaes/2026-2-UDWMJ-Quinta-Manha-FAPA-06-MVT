@@ -18,3 +18,11 @@ def add_payment(request):
         form = PaymentForm()
     context['form'] = form
     return render(request, template_name, context)
+
+def list_payments(request):
+    template_name = 'payment/list_payments.html'
+    payments = Payment.objects.filter()
+    context = {
+        'payments': payments
+    }
+    return render(request, template_name, context)
