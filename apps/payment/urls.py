@@ -1,0 +1,11 @@
+from django.urls import path
+from . import views
+
+app_name = 'payment'
+
+urlpatterns = [
+    path('listar/', views.list_payments, name='list_payments'),
+    path('adicionar/', views.add_payment, name='add_payment'),
+    path('editar/<int:id_payment>/', views.edit_payment, name='edit_payment'),  
+    path('excluir/<int:id_payment>/', views.delete_payment, name='delete_payment'), 
+]
