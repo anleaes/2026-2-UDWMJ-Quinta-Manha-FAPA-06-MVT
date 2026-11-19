@@ -40,3 +40,8 @@ def edit_payment(request, id_payment):
         form = PaymentForm(instance=payment)
     context['form'] = form
     return render(request, template_name, context)
+
+def delete_payment(request, id_payment):
+    payment = Payment.objects.get(id=id_payment)
+    payment.delete()
+    return redirect('payment:list_payments')
