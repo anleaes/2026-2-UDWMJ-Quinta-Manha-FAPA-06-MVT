@@ -1,10 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth.decorators import login_required
 from .forms import ClassBookingForm
 from .models import ClassBooking
 
 
-@login_required(login_url='/contas/login/')
 def list_class_bookings(request):
     template_name = 'classbooking/list_class_bookings.html'
     bookings = ClassBooking.objects.all()
@@ -13,7 +11,6 @@ def list_class_bookings(request):
     }
     return render(request, template_name, context)
 
-@login_required(login_url='/contas/login/')
 def add_class_booking(request):
     template_name = 'classbooking/add_class_booking.html'
     if request.method == 'POST':
@@ -28,7 +25,6 @@ def add_class_booking(request):
     }
     return render(request, template_name, context)
 
-@login_required(login_url='/contas/login/')
 def edit_class_booking(request, pk):
     template_name = 'classbooking/add_class_booking.html'
     booking = get_object_or_404(ClassBooking, pk=pk)
@@ -44,7 +40,6 @@ def edit_class_booking(request, pk):
     }
     return render(request, template_name, context)
 
-@login_required(login_url='/contas/login/')
 def delete_class_booking(request, pk):
     booking = get_object_or_404(ClassBooking, pk=pk)
     booking.delete()
