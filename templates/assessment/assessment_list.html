@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Lista de Avaliações - {{ block.super }}
+{% endblock title %}
+
+{% block body %}
+
+<br />
+    <a href="{% url 'assessment:add_assessment' %}">Cadastro de nova avaliação</a>
+<br />
+<br />
+<b>Lista de Avaliações Físicas</b>
+<br />
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Membro</th>
+        <th>Profissional</th>
+        <th>Peso (kg)</th>
+        <th>Altura (m)</th>
+        <th>% Gordura</th>
+        <th>Data</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for assessment in assessments %}
+        <tr>
+            <td>{{ assessment.id }}</td>
+            <td>{{ assessment.member }}</td>
+            <td>{{ assessment.employee }}</td>
+            <td>{{ assessment.weight }}</td>
+            <td>{{ assessment.height }}</td>
+            <td>{{ assessment.body_fat_percentage }}</td>
+            <td>{{ assessment.assessment_date }}</td>
+            <td>
+                <a href="{% url 'assessment:edit_assessment' assessment.id %}">Editar</a>
+            </td>
+            <td>
+                <a href="{% url 'assessment:delete_assessment' assessment.id %}">Excluir</a>
+            </td>
+        </tr> 
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock body %}
