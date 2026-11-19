@@ -26,3 +26,17 @@ def list_payments(request):
         'payments': payments
     }
     return render(request, template_name, context)
+
+def edit_payment(request, id_payment):
+    template_name = 'payment/add_payment.html'
+    context = {}
+    payment = get_object_or_404(Payment, id=id_payment)
+    if request.method == 'POST':
+        form = PaymentForm(request.POST, request.FILES, instance=payment)
+        if form.is_valid():
+            form.save()
+            return redirect('payment:list_payments')
+    else:
+        form = PaymentForm(instance=payment)
+    context['form'] = form
+    return render(request, template_name, context)
