@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'enrollment.apps.EnrollmentConfig',
     'contract.apps.ContractConfig',
     'assessment.apps.Assessmentconfig,
+    'payment.apps.PaymentConfig',
 ]
 
 MIDDLEWARE = [

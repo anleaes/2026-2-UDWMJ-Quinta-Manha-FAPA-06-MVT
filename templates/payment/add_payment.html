@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ Adicionar Pagamento - {{ block.super }}
+{% endblock %}
+
+{% block body %}
+ <br />
+ <b>Cadastro de Pagamento</b>
+ <br />
+ <br />
+ <form action="" method="POST" enctype="multipart/form-data">
+ {% csrf_token %}
+ {{ form.non_field_errors }}
+ <label>Matrícula:</label>
+ <br />
+ {{ form.enrollment }}
+ {{ form.enrollment.errors }}
+ <br />
+ <br />
+ <label>Vencimento:</label>
+ <br />
+ {{ form.due_date }}
+ {{ form.due_date.errors }}
+ <br />
+ <br />
+ <label>Valor:</label>
+ <br />
+ {{ form.amount }}
+ {{ form.amount.errors }}
+ <br />
+ <br />
+ <label>Forma de pagamento:</label>
+ <br />
+ {{ form.method }}
+ {{ form.method.errors }}
+ <br />
+ <br />
+ <label>Pago em:</label>
+ <br />
+ {{ form.paid_at }}
+ {{ form.paid_at.errors }}
+ <br />
+ <br />
+ <label>Comprovante:</label>
+ <br />
+ {{ form.receipt }}
+ {{ form.receipt.errors }}
+ <br />
+ <br />
+ <button type="submit">Salvar</button>
+ </form>
+{% endblock %}

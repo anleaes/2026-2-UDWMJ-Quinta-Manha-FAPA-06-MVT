@@ -21,23 +21,6 @@ function filtrarTabela() {
     });
 }
 
-// pagamentos: pinta de verde os pagos e de vermelho os vencidos
-function marcarPagamentos() {
-    var agora = new Date();
-    var hoje = agora.getFullYear() + "-" +
-        String(agora.getMonth() + 1).padStart(2, "0") + "-" +
-        String(agora.getDate()).padStart(2, "0");
-
-    var linhas = document.querySelectorAll("tr[data-vencimento]");
-    linhas.forEach(function (linha) {
-        if (linha.dataset.pago === "1") {
-            linha.classList.add("pago");
-        } else if (linha.dataset.vencimento < hoje) {
-            linha.classList.add("vencido");
-        }
-    });
-}
-
 // destaca no menu a pagina atual
 function marcarMenu() {
     var links = document.querySelectorAll("a.menu-link");
