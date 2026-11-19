@@ -1,3 +1,5 @@
+/apps/classbooking/__pycache__/*
+/apps/classbooking/migrations/*
 /apps/assessment/__pycache__/*
 /apps/assessment/migrations/*
 /apps/core/__pycache__/*

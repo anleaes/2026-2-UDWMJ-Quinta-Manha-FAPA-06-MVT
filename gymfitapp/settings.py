@@ -42,11 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core.apps.CoreConfig',
+    'classbooking.apps.ClassbookingConfig',
     'person.apps.PersonConfig',
     'member.apps.MemberConfig',
     'employee.apps.EmployeeConfig',
     'enrollment.apps.EnrollmentConfig',
     'contract.apps.ContractConfig',
+    'assessment.apps.Assessmentconfig,
     'payment.apps.PaymentConfig',
 ]
 
