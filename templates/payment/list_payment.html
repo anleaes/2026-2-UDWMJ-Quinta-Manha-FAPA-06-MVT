@@ -41,10 +41,10 @@
  {% endif %}
  </td>
  <td>
-
+<a href="{% url 'payment:edit_payment' payment.id %}" class="btn-editar">Editar</a>
  </td>
  <td>
-
+ <a href="{% url 'payment:delete_payment' payment.id %}" class="btn-excluir">Excluir</a>
  </td>
  </tr>
  {% endfor %}
