@@ -12,5 +12,7 @@
 /apps/member/migrations/*
 /apps/contract/__pycache__/*
 /apps/contract/migrations/*
+/apps/payment/__pycache__/*
+/apps/payment/migrations/*
 /db.sqlite3
 .env 

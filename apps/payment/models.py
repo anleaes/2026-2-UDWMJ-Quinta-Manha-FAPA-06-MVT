@@ -23,3 +23,6 @@ class Payment(models.Model):
         verbose_name = 'Pagamento'
         verbose_name_plural = 'Pagamentos'
         ordering = ['id']
+
+    def __str__(self):
+        return f'{self.id} - {self.enrollment} - {self.amount}'
