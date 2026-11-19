@@ -24,8 +24,8 @@
             <td>{{ person.first_name }}</td>
             <td>{{ person.last_name }}</td>
             <td>
-            <a href="{% url 'person:edit_person' person.id %}">Editar</a>
-            <a href="{% url 'person:delete_person' person.id %}">Excluir</a>
+            <a href="{% url 'person:edit_person' person.id %}" class="btn-editar">Editar</a>
+            <a href="{% url 'person:delete_person' person.id %}" class="btn-excluir">Excluir</a>
             </td>
         </tr>
         {% empty %}

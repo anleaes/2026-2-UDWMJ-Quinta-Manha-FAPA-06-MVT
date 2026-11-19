@@ -29,15 +29,15 @@
         <tr>
             <td>{{ booking.id }}</td>
             <td>{{ booking.booked_at }}</td>
-            <td>{{ booking.attended }}</td>
+            <td>{{ booking.attended|yesno:"Sim,Não" }}</td>
             <td>{{ booking.get_status_display }}</td>
             <td>{{ booking.member }}</td>
             <td>{{ booking.class_session }}</td>
             <td>
-                <a href="{% url 'classbooking:edit_class_booking' booking.id %}">Editar</a>
+                <a href="{% url 'classbooking:edit_class_booking' booking.id %}" class="btn-editar">Editar</a>
             </td>
             <td>
-                <a href="{% url 'classbooking:delete_class_booking' booking.id %}">Excluir</a>
+                <a href="{% url 'classbooking:delete_class_booking' booking.id %}" class="btn-excluir">Excluir</a>
             </td>
         </tr> 
     {% endfor %}

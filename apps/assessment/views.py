@@ -17,7 +17,7 @@ def add_assessment(request):
         form = AssessmentForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('assessment:assessment_list')
+            return redirect('assessment:list_assessments')
     form = AssessmentForm()
     context['form'] = form
     return render(request, template_name, context)
@@ -30,7 +30,7 @@ def edit_assessment(request, id_assessment):
         form = AssessmentForm(request.POST, instance=assessment)
         if form.is_valid():
             form.save()
-            return redirect('assessment:assessment_list')
+            return redirect('assessment:list_assessments')
     form = AssessmentForm(instance=assessment)
     context['form'] = form
     return render(request, template_name, context)
@@ -38,4 +38,4 @@ def edit_assessment(request, id_assessment):
 def delete_assessment(request, id_assessment):
     assessment = get_object_or_404(Assessment, id=id_assessment)
     assessment.delete()
-    return redirect('assessment:assessment_list')
+    return redirect('assessment:list_assessments')

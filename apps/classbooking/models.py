@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 # Ajusta os imports dos modelos Member e ClassSession conforme o app onde eles estão criados (ex: core)
-from apps.core.models import Member, ClassSession
+from member.models import Member
 
 class ClassBooking(models.Model):
     class StatusChoices(models.TextChoices):
@@ -18,7 +18,7 @@ class ClassBooking(models.Model):
         default=StatusChoices.CONFIRMED
     )
     member = models.ForeignKey(Member, verbose_name='Membro', on_delete=models.CASCADE)
-    class_session = models.ForeignKey(ClassSession, verbose_name='Sessão de Aula', on_delete=models.CASCADE)
+    #class_session = models.ForeignKey(ClassSession, verbose_name='Sessão de Aula', on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'Agendamento'

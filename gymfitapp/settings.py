@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'employee.apps.EmployeeConfig',
     'enrollment.apps.EnrollmentConfig',
     'contract.apps.ContractConfig',
-    'assessment.apps.Assessmentconfig,
+    'assessment.apps.AssessmentConfig',
     'payment.apps.PaymentConfig',
 ]
 

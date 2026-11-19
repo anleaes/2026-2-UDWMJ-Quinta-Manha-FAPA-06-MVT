@@ -22,8 +22,8 @@
             <td>{{ employee }}</td>
             <td>{{ employee.get_position_display }}</td>
             <td>
-    <a href="{% url 'employee:edit_employee' employee.id %}">Editar</a>
-    <a href="{% url 'employee:delete_employee' employee.id %}">Excluir</a>
+    <a href="{% url 'employee:edit_employee' employee.id %} " class="btn-editar">Editar</a>
+    <a href="{% url 'employee:delete_employee' employee.id %}" class="btn-excluir">Excluir</a>
 </td>
         </tr>
         {% empty %}

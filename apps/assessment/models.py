@@ -1,5 +1,6 @@
 from django.db import models
-from apps.core.models import Member, Employee
+from member.models import Member
+from employee.models import Employee
 
 class Assessment(models.Model):
     member = models.ForeignKey(Member, on_delete=models.CASCADE, verbose_name="Membro")
