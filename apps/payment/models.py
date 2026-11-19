@@ -18,3 +18,8 @@ class Payment(models.Model):
     method = models.CharField('Forma de pagamento', max_length=10, choices=METHOD_CHOICES, default='pix')
     receipt = models.FileField('Comprovante', upload_to='docs', null=True, blank=True)
     enrollment = models.ForeignKey(Enrollment, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = 'Pagamento'
+        verbose_name_plural = 'Pagamentos'
+        ordering = ['id']
