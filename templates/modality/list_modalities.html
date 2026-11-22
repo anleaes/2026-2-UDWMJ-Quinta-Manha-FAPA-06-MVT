@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Lista de Modalidades - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+    <a href="{% url 'modality:add_modality' %}">Cadastro de nova modalidade</a>
+<br />
+<br />
+<b>Lista de Modalidades</b>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Máx. alunos</th>
+        <th>Ícone</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for modality in modalities %}
+        <tr>
+            <td>{{ modality.id }}</td>
+            <td>{{ modality.name }}</td>
+            <td>{{ modality.description }}</td>
+            <td>{{ modality.max_students }}</td>
+            <td>
+                {% if modality.icon %}
+                    <img src="{{ modality.icon.url }}" alt="{{ modality.name }}" width="50">
+                {% else %}
+                    Sem ícone
+                {% endif %}
+            </td>
+            <td>
+                <a href="{% url 'modality:edit_modality' modality.id %}">Editar</a>
+            </td>
+            <td>
+                <a href="{% url 'modality:delete_modality' modality.id %}">Excluir</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock body %}
