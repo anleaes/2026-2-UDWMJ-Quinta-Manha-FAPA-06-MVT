@@ -1,4 +1,2 @@
-/apps/core/__pycache__/*
-/apps/core/migrations/*
-/gymfitapp/__pycache__/*
-/gymfitapp/migrations/*
+__pycache__/
+*.py[cod]

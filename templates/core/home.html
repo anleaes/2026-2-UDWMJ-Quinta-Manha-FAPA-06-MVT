@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 
 {% block title %}
@@ -6,6 +7,21 @@
 
 {% block body %}
 
-<!-- Codigo html especifico desse arquivo -->
+<h2>GymFit</h2>
+
+<h3>Funcionalidades</h3>
+
+<ul>
+    <li>
+        <a href="{% url 'modality:list_modalities' %}">
+            Modalidades
+        </a>
+    </li>
+    <li>
+        <a href="{% url 'plan:list_plans' %}">
+            Planos
+        </a>
+    </li>
+</ul>
 
 {% endblock body %}
