@@ -22,7 +22,15 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('agendamentos/', include('classbooking.urls', namespace='classbooking')),
+    path('avaliacoes/', include('assessment.urls', namespace='assessment')),
     path('', include('core.urls', namespace='core')),
+    path('pessoas/', include('person.urls', namespace='person')),
+    path('membros/', include('member.urls', namespace='member')),
+    path('funcionarios/', include('employee.urls', namespace='employee')),
+    path('matriculas/', include('enrollment.urls', namespace='enrollment')),
+    path('contratos/', include('contract.urls', namespace='contract')),
+    path('pagamentos/', include('payment.urls', namespace='payment')),
     path('modalidades/', include('modality.urls', namespace='modality')),
     path('planos/', include('plan.urls', namespace='plan')),
 ]

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ Adicionar Contrato - {{ block.super }}
+{% endblock %}
+
+{% block body %}
+ <br />
+ <b>Cadastro de Contrato</b>
+ <br />
+ <br />
+ <form action="" method="POST" enctype="multipart/form-data">
+ {% csrf_token %}
+ {{ form.non_field_errors }}
+ <label>Matrícula:</label>
+ <br />
+ {{ form.enrollment }}
+ {{ form.enrollment.errors }}
+ <br />
+ <br />
+ <label>Número:</label>
+ <br />
+ {{ form.number }}
+ {{ form.number.errors }}
+ <br />
+ <br />
+ <label>Assinado:</label>
+ <br />
+ {{ form.is_signed }}
+ {{ form.is_signed.errors }}
+ <br />
+ <br />
+ <label>Data de assinatura:</label>
+ <br />
+ {{ form.signed_at }}
+ {{ form.signed_at.errors }}
+ <br />
+ <br />
+ <label>PDF do contrato:</label>
+ <br />
+ {{ form.pdf }}
+ {{ form.pdf.errors }}
+ <br />
+ <br />
+ <button type="submit">Salvar</button>
+ </form>
+{% endblock %}

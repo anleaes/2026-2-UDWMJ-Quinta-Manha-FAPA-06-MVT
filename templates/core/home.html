@@ -1,27 +1,27 @@
-
 {% extends 'base.html' %}
 
 {% block title %}
-    {{ block.super }}
-{% endblock title %}
+ Início - {{ block.super }}
+{% endblock %}
 
 {% block body %}
+ <br />
+ <div class="centralizado">
+ <h1>Bem-vindo à GymFit</h1>
+ <p>Escolha uma opção abaixo para começar.</p> 
+ </div>
 
-<h2>GymFit</h2>
-
-<h3>Funcionalidades</h3>
-
-<ul>
-    <li>
-        <a href="{% url 'modality:list_modalities' %}">
-            Modalidades
-        </a>
-    </li>
-    <li>
-        <a href="{% url 'plan:list_plans' %}">
-            Planos
-        </a>
-    </li>
-</ul>
-
-{% endblock body %}
+ <div class="opcoes">
+ <a href="{% url 'member:list_members' %}" class="menu-link"><button>Alunos</button></a>
+ <a href="{% url 'employee:list_employees' %}" class="menu-link"><button>Funcionários</button></a>
+ <a href="{% url 'plan:list_plans' %}" class="menu-link"><button>Planos</button></a>
+ <a href="{% url 'modality:list_modalities' %}" class="menu-link"><button>Modalidades</button></a>
+ <a href="" class="menu-link"><button>Salas</button></a>
+ <a href="{% url 'enrollment:list_enrollments' %}" class="menu-link"><button>Matrículas</button></a>
+ <a href="{% url 'contract:list_contracts' %}" class="menu-link"><button>Contratos</button></a>
+ <a href="{% url 'payment:list_payments' %}" class="menu-link"><button>Pagamentos</button></a>
+ <a href="{% url 'assessment:list_assessments' %}" class="menu-link"><button>Avaliações</button></a>
+ <a href="" class="menu-link"><button>Aulas</button></a>
+ <a href="{% url 'classbooking:list_class_bookings' %}" class="menu-link"><button>Reservas</button></a>
+ </div>
+{% endblock %}
