@@ -1,2 +1,6 @@
-__pycache__/
-*.py[cod]
+/apps/modality/__pycache__/*
+/apps/modality/migrations/*
+/apps/plan/__pycache__/*
+/apps/plan/migrations/*
+/db.sqlite3
+.env
