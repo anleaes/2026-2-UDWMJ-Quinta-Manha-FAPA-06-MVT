@@ -1,0 +1,65 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Lista de Planos - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+<a href="{% url 'plan:add_plan' %}">Cadastro de novo plano</a>
+<br />
+<br />
+<b>Lista de Planos</b>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Valor mensal</th>
+        <th>Duração (meses)</th>
+        <th>Ativo</th>
+        <th>Modalidades</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for plan in plans %}
+        <tr>
+            <td>{{ plan.id }}</td>
+            <td>{{ plan.name }}</td>
+            <td>{{ plan.description }}</td>
+            <td>{{ plan.monthly_price }}</td>
+            <td>{{ plan.duration_months }}</td>
+            <td>
+                {% if plan.is_active %}
+                    Sim
+                {% else %}
+                    Não
+                {% endif %}
+            </td>
+            <td>
+                {% for modality in plan.modalities.all %}
+                    {{ modality.name }}{% if not forloop.last %}, {% endif %}
+                {% empty %}
+                    Nenhuma modalidade
+                {% endfor %}
+            </td>
+            <td>
+                <a href="{% url 'plan:edit_plan' plan.id %}">Editar</a>
+            </td>
+            <td>
+                <a href="{% url 'plan:delete_plan' plan.id %}">Excluir</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock body %}

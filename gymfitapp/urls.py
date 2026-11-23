@@ -1,3 +1,4 @@
+
 """
 URL configuration for Gymfitapp project.
 
@@ -30,5 +31,8 @@ urlpatterns = [
     path('matriculas/', include('enrollment.urls', namespace='enrollment')),
     path('contratos/', include('contract.urls', namespace='contract')),
     path('pagamentos/', include('payment.urls', namespace='payment')),
+    path('modalidades/', include('modality.urls', namespace='modality')),
+    path('planos/', include('plan.urls', namespace='plan')),
 ]
+
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
