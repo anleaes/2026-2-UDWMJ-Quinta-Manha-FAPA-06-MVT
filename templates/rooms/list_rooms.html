@@ -1,0 +1,96 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+    Lista de Salas - {{ block.super }}
+{% endblock title %}
+
+{% block body %}
+
+<br />
+
+<a href="{% url 'rooms:add_room' %}">
+    Cadastro de nova sala
+</a>
+
+<br />
+<br />
+
+<b>Lista de Salas</b>
+
+<table border="1">
+
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Capacidade</th>
+            <th>Disponibilidade</th>
+            <th>Foto</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        {% for room in rooms %}
+
+        <tr>
+            <td>{{ room.id }}</td>
+
+            <td>{{ room.name }}</td>
+
+            <td>{{ room.capacity }}</td>
+
+            <td>
+                {% if room.is_available %}
+                    Disponível
+                {% else %}
+                    Indisponível
+                {% endif %}
+            </td>
+
+            <td>
+                {% if room.photo %}
+                    <img src="{{ room.photo.url }}"
+                         width="100"
+                         alt="{{ room.name }}">
+                {% else %}
+                    Sem foto
+                {% endif %}
+            </td>
+
+            <td>
+                <a href="{% url 'rooms:edit_room' room.id %}">
+                    Editar
+                </a>
+            </td>
+
+            <td>
+                <form method="POST"
+                      action="{% url 'rooms:delete_room' room.id %}"
+                      onsubmit="return confirm('Deseja excluir esta sala?');">
+
+                    {% csrf_token %}
+
+                    <button type="submit">Excluir</button>
+
+                </form>
+            </td>
+
+        </tr>
+
+        {% empty %}
+
+        <tr>
+            <td colspan="7">Nenhuma sala cadastrada.</td>
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock body %}
