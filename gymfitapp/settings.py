@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'modality.apps.ModalityConfig',
     'plan.apps.PlanConfig',
     'rooms.apps.RoomsConfig',
+    'class_sessions.apps.ClassSessionsConfig',
 ]
 
 MIDDLEWARE = [

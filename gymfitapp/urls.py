@@ -34,6 +34,7 @@ urlpatterns = [
     path('modalidades/', include('modality.urls', namespace='modality')),
     path('planos/', include('plan.urls', namespace='plan')),
     path('salas/', include('rooms.urls', namespace='rooms')),
+    path('sessoes/', include('class_sessions.urls', namespace='class_sessions')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

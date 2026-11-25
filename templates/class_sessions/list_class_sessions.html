@@ -1,0 +1,90 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+    Lista de Sessões de Aula - {{ block.super }}
+{% endblock title %}
+
+{% block body %}
+
+<br />
+
+<a href="{% url 'class_sessions:add_class_session' %}">
+    Cadastro de nova sessão de aula
+</a>
+
+<br />
+<br />
+
+<b>Lista de Sessões de Aula</b>
+
+<table border="1">
+
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Data e horário</th>
+            <th>Duração (minutos)</th>
+            <th>Descrição</th>
+            <th>Modalidade</th>
+            <th>Sala</th>
+            <th>Instrutor</th>
+            <th>Editar</th>
+            <th>Excluir</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        {% for session in class_sessions %}
+
+        <tr>
+            <td>{{ session.id }}</td>
+
+            <td>{{ session.scheduled_at|date:"d/m/Y H:i" }}</td>
+
+            <td>{{ session.duration_minutes }}</td>
+
+            <td>{{ session.description }}</td>
+
+            <td>{{ session.modality }}</td>
+
+            <td>{{ session.room }}</td>
+
+            <td>{{ session.instructor }}</td>
+
+            <td>
+                <a href="{% url 'class_sessions:edit_class_session' session.id %}">
+                    Editar
+                </a>
+            </td>
+
+            <td>
+                <form method="POST"
+                      action="{% url 'class_sessions:delete_class_session' session.id %}"
+                      onsubmit="return confirm('Deseja realmente excluir esta sessão de aula?');">
+
+                    {% csrf_token %}
+
+                    <button type="submit">Excluir</button>
+
+                </form>
+            </td>
+
+        </tr>
+
+        {% empty %}
+
+        <tr>
+            <td colspan="9">
+                Nenhuma sessão de aula cadastrada.
+            </td>
+        </tr>
+
+        {% endfor %}
+
+    </tbody>
+
+</table>
+
+{% endblock body %}

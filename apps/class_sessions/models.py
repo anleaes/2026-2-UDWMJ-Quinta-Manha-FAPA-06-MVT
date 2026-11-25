@@ -17,7 +17,7 @@ class ClassSession(models.Model):
     )
 
     modality = models.ForeignKey(
-        "modalities.Modality",
+        "modality.Modality",
         on_delete=models.PROTECT,
         related_name="class_sessions",
         verbose_name="Modalidade"
@@ -31,7 +31,7 @@ class ClassSession(models.Model):
     )
 
     instructor = models.ForeignKey(
-        "employees.Employee",
+        "employee.Employee",
         on_delete=models.PROTECT,
         related_name="class_sessions",
         verbose_name="Instrutor"
