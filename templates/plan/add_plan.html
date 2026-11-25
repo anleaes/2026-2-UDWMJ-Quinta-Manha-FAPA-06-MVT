@@ -1,0 +1,51 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Adicionar Plano - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+<br />
+<b>Cadastro de Plano</b>
+<br />
+<br />
+<form action="" method="POST">
+{% csrf_token %}
+    <label>Nome</label>
+    <br />
+    {{ form.name }}
+    <br />
+    <br />
+    <label>Descrição</label>
+    <br />
+    {{ form.description }}
+    <br />
+    <br />
+    <label>Valor mensal</label>
+    <br />
+    {{ form.monthly_price }}
+    <br />
+    <br />
+    <label>Duração em meses</label>
+    <br />
+    {{ form.duration_months }}
+    <br />
+    <br />
+    <label>Plano ativo</label>
+    <br />
+    {{ form.is_active }}
+    <br />
+    <br />
+    <label>Modalidades</label>
+    <br />
+    {{ form.modalities }}
+    <br />
+    <br />
+    <button type="submit">Salvar</button>
+</form>
+
+{% endblock body %}

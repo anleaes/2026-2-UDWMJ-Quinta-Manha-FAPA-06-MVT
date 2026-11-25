@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if member %}Editar Membro{% else %}Cadastrar Membro{% endif %}
+    - {{ block.super }}
+{% endblock title %}
+
+{% block body %}
+<h1>{% if member %}Editar Membro{% else %}Cadastrar Membro{% endif %}</h1>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+
+    {% for field in form %}
+        <p>
+            {{ field.label_tag }}
+            {{ field }}
+            {{ field.errors }}
+        </p>
+    {% endfor %}
+
+    <button type="submit">Salvar</button>
+    <a href="{% url 'member:list_members' %}">Voltar</a>
+</form>
+{% endblock body %}

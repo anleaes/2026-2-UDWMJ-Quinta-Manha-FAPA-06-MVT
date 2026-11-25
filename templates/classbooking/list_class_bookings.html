@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Lista de Agendamentos - {{ block.super }}
+{% endblock title %}
+
+{% block body %}
+
+<br />
+    <a href="{% url 'classbooking:add_class_booking' %}">Cadastro de novo agendamento</a>
+<br />
+<br />
+<b>Lista de Agendamentos</b>
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Data</th>
+        <th>Compareceu</th>
+        <th>Status</th>
+        <th>Membro</th>
+        <th>Sessão</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for booking in bookings %}
+        <tr>
+            <td>{{ booking.id }}</td>
+            <td>{{ booking.booked_at }}</td>
+            <td>{{ booking.attended|yesno:"Sim,Não" }}</td>
+            <td>{{ booking.get_status_display }}</td>
+            <td>{{ booking.member }}</td>
+            <td>{{ booking.class_session }}</td>
+            <td>
+                <a href="{% url 'classbooking:edit_class_booking' booking.id %}" class="btn-editar">Editar</a>
+            </td>
+            <td>
+                <a href="{% url 'classbooking:delete_class_booking' booking.id %}" class="btn-excluir">Excluir</a>
+            </td>
+        </tr> 
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock body %}
