@@ -1,0 +1,79 @@
+ 
+{% extends 'base.html' %}
+
+{% block title %}
+    Cadastro de Sessão de Aula - {{ block.super }}
+{% endblock title %}
+
+{% block body %}
+
+<br />
+
+<b>Cadastro de Sessão de Aula</b>
+
+<br />
+<br />
+
+<form action="" method="POST">
+
+    {% csrf_token %}
+
+    {{ form.non_field_errors }}
+
+    <label>Data e horário</label>
+    <br />
+    {{ form.scheduled_at }}
+    {{ form.scheduled_at.errors }}
+
+    <br />
+    <br />
+
+    <label>Duração em minutos</label>
+    <br />
+    {{ form.duration_minutes }}
+    {{ form.duration_minutes.errors }}
+
+    <br />
+    <br />
+
+    <label>Descrição</label>
+    <br />
+    {{ form.description }}
+    {{ form.description.errors }}
+
+    <br />
+    <br />
+
+    <label>Modalidade</label>
+    <br />
+    {{ form.modality }}
+    {{ form.modality.errors }}
+
+    <br />
+    <br />
+
+    <label>Sala</label>
+    <br />
+    {{ form.room }}
+    {{ form.room.errors }}
+
+    <br />
+    <br />
+
+    <label>Instrutor</label>
+    <br />
+    {{ form.instructor }}
+    {{ form.instructor.errors }}
+
+    <br />
+    <br />
+
+    <button type="submit">Salvar</button>
+
+    <a href="{% url 'class_sessions:list_class_sessions' %}">
+        Voltar
+    </a>
+
+</form>
+
+{% endblock body %}
