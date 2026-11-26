@@ -6,31 +6,63 @@
 <h1>Lista de Membros</h1>
 <a href="{% url 'member:add_member' %}">Cadastrar membro</a>
 
-<table border="1">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Data de cadastro</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for member in members %}
-        <tr>
-            <td>{{ member.id }}</td>
-            <td>{{ member }}</td>
-            <td>{{ member.registered_at|date:'d/m/Y' }}</td>
-            <td>
-    <a href="{% url 'member:edit_member' member.id %}">Editar</a>
-    <a href="{% url 'member:delete_member' member.id %}">Excluir</a>
-</td>
-        </tr>
-        {% empty %}
-        <tr>
-            <td colspan="4">Nenhum membro cadastrado.</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+<div style="overflow-x: auto;">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>Endereço</th>
+                <th>Telefone</th>
+                <th>E-mail</th>
+                <th>Data de nascimento</th>
+                <th>Gênero</th>
+                <th>CPF</th>
+                <th>Data de cadastro</th>
+                <th>Foto</th>
+                <th>Atestado médico</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for member in members %}
+            <tr>
+                <td>{{ member.id }}</td>
+                <td>{{ member.first_name }}</td>
+                <td>{{ member.last_name }}</td>
+                <td>{{ member.address }}</td>
+                <td>{{ member.phone }}</td>
+                <td>{{ member.email }}</td>
+                <td>{{ member.birth_date|date:"d/m/Y" }}</td>
+                <td>{{ member.get_gender_display }}</td>
+                <td>{{ member.cpf }}</td>
+                <td>{{ member.registered_at|date:"d/m/Y H:i" }}</td>
+                <td>
+                    {% if member.photo %}
+                        <img src="{{ member.photo.url }}" alt="Foto de {{ member }}" width="70" height="70" style="object-fit: cover;">
+                    {% else %}
+                        Sem foto
+                    {% endif %}
+                </td>
+                <td>
+                    {% if member.medical_certificate %}
+                        <a href="{{ member.medical_certificate.url }}" target="_blank" rel="noopener noreferrer">Ver atestado</a>
+                    {% else %}
+                        Não informado
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'member:edit_member' member.id %}" class="btn-editar">Editar</a>
+                    <a href="{% url 'member:delete_member' member.id %}" class="btn-excluir">Excluir</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="13">Nenhum membro cadastrado.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock body %}
