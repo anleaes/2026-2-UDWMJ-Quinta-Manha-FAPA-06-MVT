@@ -22,6 +22,10 @@
 /apps/contract/migrations/*
 /apps/payment/__pycache__/*
 /apps/payment/migrations/*
+/apps/class_sessions/__pycache__/*
+/apps/class_sessions/migrations/*
+/apps/rooms/__pycache__/*
+/apps/rooms/migrations/*
 __pycache__/
 *.pyc
 /db.sqlite3

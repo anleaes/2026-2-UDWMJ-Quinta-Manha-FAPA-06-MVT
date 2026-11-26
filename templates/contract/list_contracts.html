@@ -39,7 +39,13 @@
  Não
  {% endif %}
  </td>
- <td>{{ contract.signed_at|date:"d/m/Y" }}</td>
+ <td>
+{% if contract.is_signed %}
+    {{ contract.signed_at|date:"d/m/Y" }}
+{% else %}
+    Pendente
+{% endif %}
+</td>
  <td>
  {% if contract.pdf %}
  <a href="{{ contract.pdf.url }}">Abrir PDF</a>

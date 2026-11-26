@@ -1,6 +1,6 @@
 from django.db import models
 from member.models import Member
-#from plan.models import Plan
+from plan.models import Plan
 from employee.models import Employee
 
 # Create your models here.
@@ -19,7 +19,7 @@ class Enrollment(models.Model):
     status = models.CharField('Status', max_length=10, choices=STATUS_CHOICES, default='pending')
     total = models.DecimalField('Total', max_digits=10, decimal_places=2, default=0)
     member = models.ForeignKey(Member, on_delete=models.CASCADE)
-    #plan = models.ForeignKey(Plan, on_delete=models.CASCADE)
+    plan = models.ForeignKey(Plan, on_delete=models.CASCADE)
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
 
     class Meta:
