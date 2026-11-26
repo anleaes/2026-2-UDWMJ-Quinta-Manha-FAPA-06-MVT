@@ -14,6 +14,10 @@
             <th>ID</th>
             <th>Nome</th>
             <th>Sobrenome</th>
+            <th>Endereço</th>
+            <th>telefone</th>
+            <th>Email</th>
+            <th>Data de Aniversario</th>
             <th>Ações</th>
         </tr>
     </thead>
@@ -23,6 +27,10 @@
             <td>{{ person.id }}</td>
             <td>{{ person.first_name }}</td>
             <td>{{ person.last_name }}</td>
+            <td>{{ person.address }}</td>
+            <td>{{ person.phone }}</td>
+            <td>{{ person.email }}</td>
+            <td>{{ person.birth_date }}</td>
             <td>
             <a href="{% url 'person:edit_person' person.id %}">Editar</a>
             <a href="{% url 'person:delete_person' person.id %}">Excluir</a>
