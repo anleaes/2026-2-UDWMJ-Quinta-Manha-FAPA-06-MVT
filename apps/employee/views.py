@@ -44,14 +44,6 @@ def edit_employee(request, id_employee):
     }
     return render(request, template_name, context)
 def delete_employee(request, id_employee):
-    template_name = 'employee/delete_employee.html'
-    employee = get_object_or_404(Employee, id=id_employee)
-
-    if request.method == 'POST':
-        employee.delete(keep_parents=True)
-        return redirect('employee:list_employees')
-
-    context = {
-        'employee': employee,
-    }
-    return render(request, template_name, context)
+    employee = Employee.objects.get(id=id_employee)
+    employee.delete(keep_parents=True)
+    return redirect('employee:list_employees')
