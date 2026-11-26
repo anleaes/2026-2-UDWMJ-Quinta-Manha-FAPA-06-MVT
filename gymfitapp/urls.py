@@ -33,6 +33,7 @@ urlpatterns = [
     path('pagamentos/', include('payment.urls', namespace='payment')),
     path('modalidades/', include('modality.urls', namespace='modality')),
     path('planos/', include('plan.urls', namespace='plan')),
+    path('salas/', include('rooms.urls', namespace='rooms')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

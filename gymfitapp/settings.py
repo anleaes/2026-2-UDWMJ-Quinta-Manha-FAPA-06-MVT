@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'payment.apps.PaymentConfig',
     'modality.apps.ModalityConfig',
     'plan.apps.PlanConfig',
+    'rooms.apps.RoomsConfig',
 ]
 
 MIDDLEWARE = [

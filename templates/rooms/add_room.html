@@ -1,0 +1,63 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+    Cadastro de Sala - {{ block.super }}
+{% endblock title %}
+
+{% block body %}
+
+<br />
+
+<b>Cadastro de Sala</b>
+
+<br />
+<br />
+
+<form action="" method="POST" enctype="multipart/form-data">
+
+    {% csrf_token %}
+
+    {{ form.non_field_errors }}
+
+    <label>Nome da sala</label>
+    <br />
+    {{ form.name }}
+    {{ form.name.errors }}
+
+    <br />
+    <br />
+
+    <label>Capacidade</label>
+    <br />
+    {{ form.capacity }}
+    {{ form.capacity.errors }}
+
+    <br />
+    <br />
+
+    <label>Disponível</label>
+    <br />
+    {{ form.is_available }}
+    {{ form.is_available.errors }}
+
+    <br />
+    <br />
+
+    <label>Foto</label>
+    <br />
+    {{ form.photo }}
+    {{ form.photo.errors }}
+
+    <br />
+    <br />
+
+    <button type="submit">Salvar</button>
+
+    <a href="{% url 'rooms:list_rooms' %}">
+        Voltar
+    </a>
+
+</form>
+
+{% endblock body %}
